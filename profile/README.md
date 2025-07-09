@@ -93,11 +93,11 @@ SVG 지도 기반 지역 선택, 테마 필터(여행지/맛집/숙소), PDF 저
 | 기간 | 내용 |
 |------|------|
 | 1~2일 | 기획, ERD, 요구사항 정의 |
-| 3~5일 | DB 설계, 회원 기능 개발 |
-| 6~7일 | 게시판 CRUD, 댓글/좋아요 |
-| 8~9일 | SVG 지도, 추천 연동, PDF |
+| 3~5일 | DB 설계, Docker/CORS 설정 |
+| 6~7일 | 회원 기능 개발, 게시판 CRUD |
+| 8~9일 | 댓글/좋아요 ,SVG 지도, 추천 연동 |
 | 10~11일 | 관리자 기능, 차트 시각화 |
-| 12~13일 | 배포 환경 구성, Docker/CORS 설정 |
+| 12~13일 | 배포 환경 구성 |
 | 14~15일 | 문서화, 발표 준비 |
 
 ---
@@ -107,11 +107,11 @@ SVG 지도 기반 지역 선택, 테마 필터(여행지/맛집/숙소), PDF 저
 | 분야 | 기술 |
 |------|------|
 | Frontend | React, Vite, Axios, React Router, Chart.js |
-| Backend | Spring Boot 3.2.x, Spring Security, JPA, JWT |
+| Backend | Spring Boot , Spring Security, JPA, JWT |
 | DB | Oracle 21c XE |
 | 인증 | JWT (HttpOnly 쿠키), Kakao OAuth 2.0 |
-| 배포 | Docker, 포트 포워딩 (ex: 8080:8080), Nginx 예정 |
-| 기타 | PDF-lib, CORS 설정, Chart.js.register, 역할 분리 처리 |
+| 배포 | Docker |
+| 기타 | CORS 설정, Chart.js.register |
 
 ---
 
@@ -159,13 +159,17 @@ DB 테이블 분리 → JWT에 role (`ROLE_USER`, `ROLE_KAKAO`) 부여 → 게�
 
 ```bash
 # frontend
-cd frontend
-npm install && npm run dev
+**/tour_react#
+npm i 
+npm i axios
+npm i vite
+npm i react-router-dom
+npm i react-chartjs-2
 
-# backend
-cd backend
-./mvnw spring-boot:run
-```
+
+// react 실행 명령어 
+npm run dev
+
 
 `.env` 또는 `application.yml`에 DB 정보 필요
 
@@ -174,17 +178,21 @@ cd backend
 ## 🐳 Docker 배포 예시
 
 ```bash
-docker build -t tour-backend ./backend
-docker run -d -p 8080:8080 --name tour-backend tour-backend
-```
+## 이미지 생성
+docker pull gvenzl/oracle-xe:21-slim
 
-> 프론트도 정적 파일 빌드 후 Nginx에 배포 가능  
-> 포트포워딩 구성: 외부 8080 → 내부 8080 매핑
+## tour란 이름의 컨테이너 생성 
+docker run -d --name tour -p 1521:1521 --restart=always  -e ORACLE_PASSWORD=1234 gvenzl/oracle-xe:21-slim
+
+
+```
 
 ---
 
 ## 🙌 제작자
 
-- **기윤 김**  
-- Backend + Frontend 통합 개발  
-- 발표 자료/포트폴리오/노션 링크 연동 가능
+- **김기윤**
+- **안정민**
+- **이경주**
+- **이윤범**
+
