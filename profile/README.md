@@ -182,6 +182,10 @@ npm run dev
 
 `application.properties`에 DB 정보 필요
 
+백엔드 실행시 압축풀고 도커실행
+[.devcontainer.zip](https://github.com/user-attachments/files/21397093/default.devcontainer.zip)
+
+
 ---
 
 ## 🐳 Docker 배포 예시
