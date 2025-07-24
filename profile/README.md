@@ -182,9 +182,6 @@ npm run dev
 
 `application.properties`에 DB 정보 필요
 
-백엔드 실행시 압축풀고 도커실행
-[.devcontainer.zip](https://github.com/user-attachments/files/21397093/default.devcontainer.zip)
-
 
 ---
 
@@ -199,6 +196,8 @@ docker run -d --name tour -p 1521:1521 --restart=always  -e ORACLE_PASSWORD=1234
 
 
 ```
+압축풀고 도커실행
+[.devcontainer.zip](https://github.com/user-attachments/files/21397128/default.devcontainer.zip)
 
 ---
 
